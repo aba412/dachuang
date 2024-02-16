@@ -1,11 +1,11 @@
-*如何使用 ICASAR 软件处理合成数据*
+# **_如何使用 ICASAR 软件处理合成数据_**
 1. 生成随机的合成干涉图日期
 1. 导入合成数据
 1. 制作合成时间序列并进行可视化展示。
 1. 进行独立成分分析（ICA）并输出分解结果
 
 
-*****一、生成随机的合成干涉图日期*****
+### *一、生成随机的合成干涉图日期*
 ```
 def generate_random_ifg_dates(n_dates):   #定义一个生成随机干涉图日期的函数，形参n_dates是一个用来指定生成随机日期数量的整数变量
 ‘’‘
@@ -34,7 +34,7 @@ def generate_random_ifg_dates(n_dates):   #定义一个生成随机干涉图日�
     return ifg_dates  #返回生成的干涉图像名称序列
 ```
 
-*****二、导入合成数据*****
+### *二、导入合成数据*
 ```
 # 定义一些参数，包括要恢复的主成分数量、bootstrapping 参数、tsne 参数等等。
 ICASAR_settings = {"n_comp" : 5,                                        
@@ -57,7 +57,7 @@ with open('synthetic_data.pkl', 'rb') as f:  #以二进制只读模式打开synt
     lats = pickle.load(f)            
 ```
 
-*****三、制作合成时间序列并进行可视化展示*****
+### *三、制作合成时间序列并进行可视化展示*
 ```
 X_dc = A_dc @ S_synth + N_dc    #计算包含合成源信号以及噪声的混合数据。A_dc 是混合矩阵，S_synth 是源信号矩阵，N_dc 是噪声矩阵。@ 符号表示矩阵乘法。                                             
 phUnw = X_dc                                                                    
@@ -86,13 +86,12 @@ fig3.canvas.manager.set_window_title("Interferograms as row vectors and a mask")
 
 ```
 
-*****四、进行独立成分分析（ICA）并输出分解结果*****
+### *四、进行独立成分分析（ICA）并输出分解结果*
 ```
 S_best, time_courses, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean  = ICASAR(spatial_data = spatial_data, **ICASAR_settings)
 ```
 
-
-*****Others*****
+### *Others*
 ```
 #创建一个名为 spatial_data 的字典，用于存储脉冲星合成孔径雷达干涉测量（InSAR）的空间数据。这些数据包括相位数据、掩码数据、经纬度坐标数据和测量日期数据
 #作用是创建并组织脉冲星合成孔径雷达干涉测量的空间数据，以方便后续处理和分析
@@ -103,3 +102,4 @@ spatial_data = {'ifgs_dc' : phUnw,
                 'lats'        : lats,                                           
                 'ifg_dates_dc'   : ifg_dates_dc}
 ```
+*字典*：在 Python 中，字典（dictionary）是一种可变容器模型，用来存储键值对（key-value pairs）。字典中的每个元素都是一个键值对，其中键（key）必须是唯一的，而值（value）可以是任意类型的对象。字典使用花括号 {} 来表示，其中每个键值对之间使用逗号 , 隔开。
