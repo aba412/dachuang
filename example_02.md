@@ -84,8 +84,6 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
 ```
 该示例使用增量干涉图像进行tICA。同样地，设置ICASAR的参数，调用ICASAR函数并返回处理后的结果。  
 
-  
-
 ### 相关名词及涉及的算法（不分先后）简介
 * 名词
   * *增量变形数据*
@@ -131,19 +129,20 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
     * 作用：通过设置该参数，可以指定输出图形的格式和方式，便于后续的可视化和结果展示。
 * 参量名
   * *S_ica*  
-    sICA 算法得到的稀疏独立成分（sparse independent components），包含了反演得到的空间源信息。
+    通过sICA 算法得到的稀疏独立成分（sparse independent components），包含了反演得到的空间源信息。
   * *A_ica*  
-    sICA 算法得到的混合矩阵（mixing matrix），包含了反演得到的时间序列信。
+    通过sICA 算法得到的混合矩阵（mixing matrix），包含了反演得到的时间序列信。
   * *Iq*  
-    Iq 是 Q 矩阵，用于计算深度学习相关性。
+    Iq 是 Q 矩阵包含了频率域上的干扰特征，用于计算深度学习相关性。
   * *x_train_residual_ts*  
-    训练集的残差时间序列。
+    训练数据的残差时间序列。
   * *n_clusters*  
     聚类数目。
   * *S_all_info*  
     包含了所有独立源的信息。
   * *phUnw_mean*  
-    无包裹相位均值。
+    进行相位去除后的平均值。 
+    在干涉图像中，相位信息往往包含了待测物体的形变信息，但是由于电磁波在传播过程中会受到各种因素的影响（如大气、地表等），导致相位信息受到了噪声和干扰的影响而不够准确。因此需要进行相位去除操作来消除这些干扰，使得相位数据更加准确和可靠。
   * *sources_labels*
     源标签。
   * *displacement_r2['mask']*
