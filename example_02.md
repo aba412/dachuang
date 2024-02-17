@@ -85,7 +85,7 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
 该示例使用增量干涉图像进行tICA。同样地，设置ICASAR的参数，调用ICASAR函数并返回处理后的结果。  
 
 ### 相关名词及涉及的算法（不分先后）简介
-* 名词
+##### * 名词
   * *增量变形数据*
     * 增量变形数据（Incremental Deformation Data）是一种用于描述对象变形信息的数据类型。它记录了一个对象在不同时间或不同状态下的几何形状之间的差异，通常以一系列的位移向量或变换矩阵的形式呈现。
   * *掩膜Mask*  
@@ -93,7 +93,7 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
       在遥感图像处理中，掩膜通常用于指定感兴趣区域（Region of Interest, ROI），即我们只对该区域内的像素进行分析和处理，而忽略其他区域。通过将不感兴趣的区域标记为无效，可以排除这些区域对分析结果的影响，提高处理的准确性和效率。
   * *数字高程模型DEM*
     DEM是一种用于表示地球表面的高程信息的数字化模型。
-* 键名
+##### * 键名
   * *n_comp*
     * 含义：ICASAR中要恢复的独立成分（Independent Components Analysis，ICA）的数量，即要保留的主成分数目。
     * 作用：通过设置合适的主成分数量，可以控制ICASAR提取的特征维度，从而影响后续的数据分析和处理过程。选择合适的主成分数量可以保留重要信息，同时减少不必要的噪声。
@@ -127,7 +127,7 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
   * *figures*
     * 含义：输出图形的格式和方式（如.png文件、交互式matplotlib图形等）。
     * 作用：通过设置该参数，可以指定输出图形的格式和方式，便于后续的可视化和结果展示。
-* 参量名
+##### * 参量名
   * *S_ica*  
     通过sICA 算法得到的稀疏独立成分（sparse independent components），包含了反演得到的空间源信息。
   * *A_ica*  
@@ -149,7 +149,7 @@ S_ica, A_ica, x_train_residual_ts, Iq, n_clusters, S_all_info, phUnw_mean, sourc
     这是位移数据的掩模信息，用于控制哪些数据点应该被考虑或排除在可视化过程中。
   * *n_data*
     用于指定要可视化的数据数量，即要显示的数据点个数。
-* 涉及的算法
+##### * 涉及的算法
   * ICA独立成分分析
     ICA 是一种盲源信号分离方法，旨在从混合信号中分离出相互统计独立的原始信号。其基于统计学原理，通过最大化信号的相互独立性来分离混合信号中的原始信号。
   * *聚类算法HDBSCAN*  
